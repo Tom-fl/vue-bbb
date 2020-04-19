@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        {{message}}
+        <p>{{firstName + lastName}}</p>
+        <p>{{firstName +' '+ lastName}}</p>
+        <p>{{sum*20}}</p>
+    </div>
+    <script src="../js/vue.js"></script>
+    <script>
+        const app = new Vue({
+            el: '#app',
+            data: {
+                message: 'hello',
+                firstName: 'kobe',
+                lastName: 'bryant',
+                sum: 1
+            }
+        })
+    </script>
+</body>
+
+</html>

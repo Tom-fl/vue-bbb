@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 
+        计数器的MVVM
+        我们计数器中就有严格MVVM思想
+            View依然是我们的DOM
+            Model就是我们抽离出来的obj
+            ViewModel就是我们创建的Vue对象实例
+        如何工作的呢?
+            首先ViewModel通过Data Binding让obj中的数据实时的在DOM显示
+            其次ViewModel通过DOM Listener来监听DOM事件，并且通过methods中的操作，来改变obj中的数据
+        有了Vue帮助我们完成VueModel层的任务，在后续的开发，我们就可以专注于数据的处理，以及DOM的编写工作了
+     -->
+    <div id="app">
+        <p>{{message}}</p>
+        <button @click='message++'>+</button>
+        <button @click='message--'>-</button>
+    </div>
+    <script src="../js/vue.js"></script>
+    <script>
+        const app = new Vue({
+            el: '#app', // 决定之后Vue实例会管理哪个DOM
+            data: { // Vue实例对应的数据对象
+                message: 0,
+            },
+            methods: { // 定义一些属于Vue方法，可以在其他地方调用，也可以在指令中使用
+            },
+            mounted: function() {
+                console.log('b');
+            },
+            beforeCreate: function() {
+                console.log('beforCreate');
+            },
+            created: function() {
+                console.log('a');
+            }
+        })
+    </script>
+    <style>
+        ul {
+            list-style: none;
+        }
+    </style>
+
+</body>
+
+</html>

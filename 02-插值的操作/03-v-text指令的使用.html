@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <p v-text='url'></p>
+        <p v-html='url'></p>
+        <p v-text='message'>覆盖掉了</p>
+    </div>
+    <script src="../js/vue.js"></script>
+    <script>
+        const app = new Vue({
+            el: '#app',
+            data: {
+                message: '覆盖了',
+                url: '<span>我是标签</span>'
+            }
+        })
+    </script>
+</body>
+
+</html>

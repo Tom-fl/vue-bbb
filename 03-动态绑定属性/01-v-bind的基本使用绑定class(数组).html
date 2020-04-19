@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .a {
+            color: red;
+        }
+        
+        .p {
+            font-size: 100px;
+        }
+        
+        .b {
+            color: brown;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <p class="p" :class="['a']">{{message}}</p>
+        <p :class="getclass()">{{message}}</p>
+        <button @click="btn">点击</button>
+    </div>
+    <script src="../js/vue.js"></script>
+    <script>
+        const app = new Vue({
+            el: '#app',
+            data: {
+                message: 'hello',
+                first: true,
+                x: 'b'
+            },
+            methods: {
+                btn: function() {
+                    this.first = !this.first
+                },
+                getclass: function() {
+                    return [this.x]
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
