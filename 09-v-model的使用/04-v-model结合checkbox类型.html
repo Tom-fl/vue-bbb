@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <!-- 1.checkbox单选框 -->
+        <!-- <label for="agree">
+            <input type="checkbox" name="" id="agree" v-model="isAgress">同意协议
+        </label>
+        <button :disabled='!isAgress'>下一步</button> -->
+
+        <!-- 2.checkbox多选框 -->
+        <label for="basketball">
+            <input type="checkbox" value="篮球" id="basketball" v-model='hobbies'>篮球
+        </label>
+        <label for="football">
+            <input type="checkbox" value="足球" id="football" v-model='hobbies'>足球
+        </label>
+        <label for="ping pong">
+            <input type="checkbox" value="乒乓球" id="ping pong" v-model='hobbies'>乒乓球
+        </label>
+        <label for="badminton">
+            <input type="checkbox" value="羽毛球" id="badminton" v-model='hobbies'>羽毛球
+        </label>
+        <h2>您的爱好是:{{hobbies}}</h2>
+    </div>
+    <script src="../js/vue.js"></script>
+    <script>
+        const app = new Vue({
+            el: '#app',
+            data: {
+                isAgress: false, // 单选框
+                hobbies: [] // 复选框
+            }
+        })
+    </script>
+</body>
+
+</html>

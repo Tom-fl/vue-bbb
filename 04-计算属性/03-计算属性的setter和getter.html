@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        {{fullName}}
+    </div>
+    <script src="../js/vue.js"></script>
+    <script>
+        const app = new Vue({
+            el: '#app',
+            data: {
+                message: 'hello',
+                name: 'fl'
+            },
+            computed: {
+                // fullName: function() {
+                //     return this.message + ' ' + this.name
+                // }
+
+                // 计算属性一般是没有set方法,只读属性
+                // fullName: {
+                // set: function() {
+
+                // },
+
+                // get: function() {
+                //     return this.message + ' ' + this.name
+                // }
+                // }
+
+                // 上面太麻烦了,最终这样写
+                fullName: function() {
+                    return this.message + ' ' + this.name
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <table>
+            <tr>
+                <td v-if=show>
+                    <label for="username">用户名</label>
+                    <input type="text" id="username" placeholder="用户名">
+                </td>
+
+                <td v-else>
+                    <label for="useremali">用户邮箱</label>
+                    <input type="text" id="useremali" placeholder="用户邮箱">
+                </td>
+            </tr>
+            <tr>
+                <td><button @click='btn'>切换模式</button></td>
+            </tr>
+        </table>
+    </div>
+    <script src="../js/vue.js"></script>
+    <script>
+        const app = new Vue({
+            el: '#app',
+            data: {
+                show: true
+            },
+            computed: {},
+            methods: {
+                btn() {
+                    this.show = !this.show
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <h2 v-if="score>=90">优秀</h2>
+        <h2 v-else-if="score>=80">良好</h2>
+        <h2 v-else="score>=60">及格</h2>
+        <!-- 推荐这个 使用计算属性 -->
+        <h1>{{result}}</h1>
+    </div>
+    <script src="../js/vue.js"></script>
+    <script>
+        const app = new Vue({
+            el: '#app',
+            data: {
+                score: 99
+            },
+            computed: {
+                result() {
+                    let showMessage = '';
+                    if (this.score >= 90) {
+                        showMessage = '优秀'
+                    }
+                    return showMessage
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

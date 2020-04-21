@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <!-- 1.直接拼接  不采用这种  语法过于繁琐 -->
+        <h3>{{message}}{{name}}</h3>
+        <!-- 2.通过定义methods -->
+        <h3>{{getFullName()}}</h3>
+        <!-- 3.通过计算属性
+            计算属性性能更高，函数调用的话是你调用一次会打印一次
+            计算属性 vue内部会是做了缓存的，只需要调用一次就行
+        -->
+        <h3>{{FullName}}</h3>
+    </div>
+    <script src="../js/vue.js"></script>
+    <script>
+        const app = new Vue({
+            el: '#app',
+            data: {
+                message: 'hello',
+                name: 'fl'
+            },
+            computed: {
+                FullName: function() {
+                    return this.message + ' ' + this.name
+                }
+            },
+            methods: {
+                getFullName: function() {
+                    return this.message + ' ' + this.name
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

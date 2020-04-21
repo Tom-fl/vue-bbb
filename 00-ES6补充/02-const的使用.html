@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* const 关键字
+         *  在很多语言已经存在，比如c/c++，主要作用是将某个变量修饰为常量
+         *  在js中也是如此，使用const修饰的标识符为常量，不可以再次赋值
+         *什么时候使用const?
+         *当我们修饰的标识符不会被再次赋值时，就可以使用const来保证数据的安全性
+         */
+        //  建议在ES6开发中，优先使用const，只有需要改变某一个标识符的时候才使用let
+        // const a = 10;
+        // a = 20;
+        // console.log(a); // 报错
+
+        // 注意1：一旦给const修饰的标识符被赋值之后，不能修改
+        // 注意2：在使用const定义标识符，必须进行赋值
+        // 注意3：常量的含义是指向对象不能修改，但是可以改变对象内部的属性
+        const obj = {
+                name: 'xx',
+                age: 12
+            }
+            // obj={} //这样改的话就是错的 因为和内存有关系
+        obj.name = 'hh';
+        obj.age = 20;
+        console.log(obj);
+    </script>
+</body>
+
+</html>

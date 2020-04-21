@@ -5,33 +5,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <style>
-        .a {
-            color: red;
-        }
-    </style>
 </head>
 
 <body>
     <div id="app">
-        <ul>
-            <li v-for="(item,index) in arr" :key='index' @click="btn(index)" :class="{a: sum === index}">
-                {{item}} {{index}}
-            </li>
-        </ul>
+        {{message}}
+        <!-- <input type="text" v-bind:value="message" @input="change"> -->
+        <input type="text" v-bind:value="message" @input="message=$event=$event.target.value">
     </div>
     <script src="../js/vue.js"></script>
     <script>
         const app = new Vue({
             el: '#app',
             data: {
-                message: 'hello',
-                arr: ['嘻嘻', '嘿嘿', '哈哈', '啦啦'],
-                sum: 0
+                message: 'hello'
             },
             methods: {
-                btn(index) {
-                    this.sum = index
+                change(event) {
+                    this.message = event.target.value;
                 }
             }
         })

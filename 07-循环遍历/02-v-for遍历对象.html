@@ -5,18 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <style>
-        .a {
-            color: red;
-        }
-    </style>
 </head>
 
 <body>
     <div id="app">
+        <!-- 1.在遍历对象的过程中，如果值获取一个值，那么获取到的是value -->
         <ul>
-            <li v-for="(item,index) in arr" :key='index' @click="btn(index)" :class="{a: sum === index}">
-                {{item}} {{index}}
+            <li v-for="(a,b,c) in obj">
+                {{b}} {{a}} {{c}}
             </li>
         </ul>
     </div>
@@ -25,13 +21,9 @@
         const app = new Vue({
             el: '#app',
             data: {
-                message: 'hello',
-                arr: ['嘻嘻', '嘿嘿', '哈哈', '啦啦'],
-                sum: 0
-            },
-            methods: {
-                btn(index) {
-                    this.sum = index
+                obj: {
+                    name: 'fl',
+                    age: 12
                 }
             }
         })

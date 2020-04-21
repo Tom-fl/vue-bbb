@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .title {}
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <!-- <h2 :style="{key(属性名):value(属性值)}">{{message}}</h2> -->
+        <!-- 这里这个100px不加单引号的话，咱们这个vue会当作一个变量，会报错 找不到 -->
+        <!-- <h2 :style="{fontSize:'100px'}">{{message}}</h2> -->
+
+        <!--  -->
+        <!-- <h2 :style="{fontSize:a+'px',color:b}">{{message}}</h2> -->
+        <h2 :style="x()">{{message}}</h2>
+    </div>
+    <script src="../js/vue.js"></script>
+    <script>
+        const app = new Vue({
+            el: '#app',
+            data: {
+                message: 'hello',
+                a: 100,
+                b: 'red'
+            },
+            methods: {
+                x: function() {
+                    return {
+                        fontSize: this.a + 'px',
+                        color: this.b
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

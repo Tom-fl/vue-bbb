@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button>按钮1</button>
+    <button>按钮2</button>
+    <button>按钮3</button>
+    <script>
+        // ES5之前因为if和for都没有块级作用域的概念，所以在很多时候，我们都必须借助于function的作用域来解决应用外面变量的问题    ES5  只有函数有作用域
+
+        // ES6中，加入了let，let它是有if和for的块级作用域的
+        // 1.变量作用域:变量在什么范围内是可用的
+        // {
+        //     var a = '1';
+        //     console.log(a);
+        // }
+        // console.log(a);
+
+        // 2.没有块级作用域引起的问题:if的块级
+        // if (true) {
+        //     var a = '1';
+        // }
+        // console.log(a);
+
+        // 3.没有块级作用域引起的问题：for的块级
+        // 为什么闭包可以解决问题：因为函数是一个作用域
+        var btn = document.getElementsByTagName('button');
+        for (var i = 0; i < btn.length; i++) {
+            (function(i) {
+                btn[i].addEventListener('click', function() {
+                    console.log(i);
+                })
+            })(i)
+        }
+    </script>
+</body>
+
+</html>

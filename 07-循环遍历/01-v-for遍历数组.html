@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <!-- 1.在遍历的过程中，没有使用索引值(下标值) -->
+        <ul>
+            <li v-for="(a,b) in arr">
+                {{b+1}}. {{a}}
+            </li>
+        </ul>
+    </div>
+    <script src="../js/vue.js"></script>
+    <script>
+        const app = new Vue({
+            el: '#app',
+            data: {
+                arr: ['aa', 'bb', 'cc']
+            }
+        })
+    </script>
+</body>
+
+</html>
