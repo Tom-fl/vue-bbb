@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- Vue实例模板 -->
+    <div id="app">
+        <cpn>
+            <template v-slot:header>
+                <h1>Here might be a page title</h1>
+            </template>
+        </cpn>
+    </div>
+
+    <!-- 子组件模板 -->
+    <template id="cpn">
+       <div>
+           <header>
+               <slot name="header"></slot>
+           </header>
+       </div>
+    </template>
+    <script src="../js/vue.js"></script>
+    <script>
+        const app = new Vue({
+            el: '#app',
+            data: {
+                message: 'hello'
+            },
+            components: {
+                cpn: {
+                    template: '#cpn'
+                }
+
+            }
+        })
+    </script>
+</body>
+
+</html>

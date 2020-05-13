@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <!-- v-bind 不支持驼峰命名 所以要加个 -  c-info  -->
+        <cpn :c-info='info' :child-my-message='message'></cpn>
+    </div>
+    <template id="cpn">
+        <!-- 里面内容 和标签多了之后，外面必须写这个div 包裹起来 ，要不然不显示 内容 -->
+        <div>
+            <ul>
+                <li v-for='item in cInfo'>
+                    {{item}}
+                </li>
+            </ul>
+            <p>{{childMyMessage}}</p>
+        </div>
+    </template>
+    <script src="../js/vue.js"></script>
+    <script>
+        const cpn = {
+            template: '#cpn',
+            props: {
+                cInfo: {
+                    type: Object,
+                    default () {
+                        return {
+                            a: 'a'
+                        }
+                    }
+                },
+                childMyMessage: {
+                    type: String,
+                    default: 'xx'
+                }
+            }
+        }
+
+
+        const app = new Vue({
+            el: '#app',
+            data: {
+                message: 'hello',
+                info: {
+                    name: 'fl',
+                    age: 12,
+                    height: 180
+                },
+            },
+            components: {
+                cpn
+            }
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <cpn :cnum1='num1' @num1chage='num1chage' :cnum2='num2' @num2chage='num2chage' />
+    </div>
+    <template id="cpn">
+        <div>
+            <h2>props:{{cnum1}}</h2>
+            <p>data:{{dnum1}}</p>
+            <input type="number" :value='dnum1'
+             @input='num1Input'>
+
+             <h2>props:{{cnum2}}</h2>
+             <p>data:{{dnum2}}</p>
+            <input type="number" :value='dnum2' @input='num2Input'>
+        </div>
+    </template>
+
+    <script src="../js/vue.js"></script>
+    <script>
+        const app = new Vue({
+            el: '#app',
+            data: {
+                num1: 1,
+                num2: 0
+            },
+            methods: {
+                num1chage(value) {
+                    this.num1 = parseFloat(value);
+                },
+                num2chage(value) {
+                    this.num2 = parseFloat(value);
+                }
+            },
+            components: {
+                cpn: {
+                    template: '#cpn',
+                    props: {
+                        cnum1: {
+                            type: Number,
+                        },
+                        cnum2: {
+                            type: Number
+                        }
+                    },
+                    data() {
+                        return {
+                            dnum1: this.cnum1,
+                            dnum2: this.cnum2
+                        }
+                    },
+                    methods: {
+                        num1Input(event) {
+                            // 1.将input中的value赋值到dnum1中
+                            this.dnum1 = event.target.value;
+                            // 2.为了让父组件可以修改值，发出一个事件
+                            this.$emit('num1chage', this.dnum1);
+
+                            // 3.同时修改dnum2的值
+                            this.dnum2 = this.dnum1 * 10;
+                            this.$emit('num2chage', this.dnum2);
+                        },
+                        num2Input(event) {
+                            this.dnum2 = event.target.value;
+                            this.$emit('num2chage', this.dnum2);
+
+                            // 同时修改dnum1的值
+                            this.dnum1 = this.dnum2 / 10;
+                            this.$emit('num1chage', this.dnum1);
+                        }
+                    }
+                }
+
+            }
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- Vue实例模板 -->
+    <div id="app">
+        <!-- 会从自己的模板去找
+            这是Vue实例模板，所以不会去子模板里找
+            -->
+        <cpn v-show='isShow'></cpn>
+    </div>
+
+    <!-- 子组件模板 -->
+    <template id="cpn">
+        <div>
+       <h2>我是标题</h2>
+       <p>我是内容</p>
+       <!-- 不会显示，它有他自己的作用域 -->
+       <button v-show='isShow'>按钮</button>
+        </div>
+    </template>
+    <script src="../js/vue.js"></script>
+    <script>
+        const app = new Vue({
+            el: '#app',
+            data: {
+                message: 'hello',
+                isShow: true
+            },
+            components: {
+                cpn: {
+                    template: '#cpn',
+                    data() {
+                        return {
+                            isShow: false
+                        }
+                    }
+                }
+
+            }
+        })
+    </script>
+</body>
+
+</html>

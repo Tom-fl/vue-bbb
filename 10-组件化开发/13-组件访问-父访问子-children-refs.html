@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <cpn></cpn>
+        <cpn ref='abc'></cpn>
+        <cpn></cpn>
+        <button @click='btnClick'>案例</button>
+    </div>
+
+    <template id="cpn">
+        <div>
+            我是子组件
+        </div>
+    </template>
+    <script src="../js/vue.js"></script>
+    <script>
+        const app = new Vue({
+            el: '#app',
+            data: {
+                message: 'hello'
+            },
+            methods: {
+                btnClick() {
+                    // 1.$children
+                    // console.log(this.$children);
+                    // // this.$children[0].showMessage();
+                    // for (let i of this.$children) {
+                    //     console.log(i.name);
+                    //     i.showMessage()
+                    // }  
+
+                    // 2.$refs ->对象类型，默认
+                    console.log(this.$refs.abc.name);
+                    this.$refs.abc.showMessage()
+                }
+            },
+
+            // 注册组件
+            components: {
+                cpn: {
+                    template: '#cpn',
+                    data() {
+                        return {
+                            name: '我是子组件name属性'
+                        }
+                    },
+                    methods: {
+                        showMessage() {
+                            console.log('showMessage');
+                        }
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

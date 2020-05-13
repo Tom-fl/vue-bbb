@@ -1,0 +1,24 @@
+{
+    "name": "webpack",
+    "version": "1.0.0",
+    "main": "index.js",
+    "license": "MIT",
+    "devDependencies": {
+        "babel-core": "^6.26.3",
+        "babel-loader": "^7.1.5",
+        "babel-preset-es2015": "^6.24.1",
+        "css-loader": "^3.5.2",
+        "file-loader": "^6.0.0",
+        "html-webpack-plugin": "^3.2.0",
+        "less": "^3.11.1",
+        "less-loader": "^5.0.0",
+        "style-loader": "^1.1.4",
+        "uglifyjs-webpack-plugin": "^1.1.1",
+        "url-loader": "^4.1.0",
+        "vue-loader": "^13.0.0",
+        "vue-template-compiler": "^2.6.11"
+    },
+    "dependencies": {
+        "vue": "^2.6.11"
+    }
+}

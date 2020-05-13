@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <!-- {{message}} -->
+    </div>
+    <!-- <script src="./dist/bundle.js"></script> -->
+    <!-- 
+        为什么报错呢？
+        vue在构建最终的发布版本的时候，构建了两类版本
+        1.runtime-only ->代码中，不可以有任何的template
+        2.runtime-compiler ->代码中可以有 template，因为有compiler可以用于编译template
+    -->
+<script type="text/javascript" src="bundle.js"></script></body>
+
+</html>

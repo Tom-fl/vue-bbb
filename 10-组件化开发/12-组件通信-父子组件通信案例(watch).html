@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <cpn :cnum1='num1' :cnum2='num2' @num1change='num1change' @num2change='num2change'></cpn>
+    </div>
+
+    <template id="cpn">
+        <div>
+            <h2>{{cnum1}}</h2>
+            <h2>{{dnum1}}</h2>
+            <input type="number" v-model='dcnum1'>
+            <h2>{{cnum2}}</h2>
+            <h2>{{dnum2}}</h2>
+            <input type="number" v-model='dcnum2'>
+        </div>
+    </template>
+    <script src="../js/vue.js"></script>
+    <script>
+        const app = new Vue({
+            el: '#app',
+            data: {
+                num1: 1,
+                num2: 0
+            },
+            methods: {
+                num1change(value) {
+                    this.num1 = parseFloat(value);
+                    // console.log(value);
+                },
+                num2change(value) {
+                    // console.log(value);
+                    this.num2 = parseFloat(value);
+                }
+            },
+            components: {
+                cpn: {
+                    template: '#cpn',
+                    props: {
+                        cnum1: {
+                            type: Number
+                        },
+                        cnum2: {
+                            type: Number
+                        }
+                    },
+                    data() {
+                        return {
+                            dnum1: this.cnum1,
+                            dnum2: this.cnum2
+                        }
+                    },
+                    watch: {
+                        dnum1(newValue) {
+                            this.dnum2 = newValue * 100;
+                            this.$emit('num1change', newValue);
+                        },
+                        dnum2(newValue) {
+                            this.cnum1 = newValue / 100;
+                            this.$emit('num2change', newValue);
+                        }
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,8 @@
+1.常见哪几种浏览器测试？哪些内核 
+    1.浏览器:IE Chrome FireFox Safari Opera
+    2.内核:Trident Gecko Presto Webkit 
+2.行内元素和块级元素的区别?
+    行内元素:会在水平方向排列，不能包含块级元素，设置width无效，height无效(可以设置line-height),margin上下无效，padding上下无效
+    块级元素:各占据一行，垂直方向排列。从新行开始结束接着一个断行
+    兼容性:display:inline-block;display:inline;zoom:1;
+3.清除浮动有哪些方式？比较好的方式是哪一种?
